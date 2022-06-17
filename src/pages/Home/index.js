@@ -1,15 +1,16 @@
 import React from 'react'
 import { motion } from "framer-motion"
 import { Container, Row, Col } from 'react-bootstrap';
+import "./style.css"
 
 
 function Home() {
   return (
     <div>
-      <Container className='align-items-center justify-content-center d-flex'>
+      <Container className='container-center'>
         <Row>
           <Col>
-            <h2>working</h2>
+            <h2>working!</h2>
           </Col>
         </Row>
       </Container>
