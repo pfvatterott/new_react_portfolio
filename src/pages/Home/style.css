@@ -9,3 +9,23 @@
     height: 75px;
     color: green;
 }
+
+.top-row-options {
+    position: absolute;
+    top: 33%;
+}
+
+.bottom-row-options {
+    position: absolute;
+    bottom: 33%;
+}
+
+.left-option {
+    position: relative;
+    right: 90%;
+}
+
+.right-option {
+    position: relative;
+    left: 90%;
+}
