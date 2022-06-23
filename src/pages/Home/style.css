@@ -1,8 +1,13 @@
 .container-center {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+    height: 10vh;
+}
+
+.top-space-container {
+    height: 35vh;
+}
+
+.bottom-space-container {
+    height: 35vh;
 }
 
 .square {
@@ -10,22 +15,14 @@
     color: green;
 }
 
-.top-row-options {
-    position: absolute;
-    top: 33%;
+.icon-option {
+    height: 40px;
 }
 
-.bottom-row-options {
-    position: absolute;
-    bottom: 33%;
+.icon-option:hover {
+    color: grey;
 }
 
-.left-option {
-    position: relative;
-    right: 90%;
-}
-
-.right-option {
-    position: relative;
-    left: 90%;
+#option-description {
+    margin-top: 10%;
 }
