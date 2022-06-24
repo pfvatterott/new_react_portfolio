@@ -109,7 +109,9 @@ function Home() {
                 bottom: 50,
               }}
               dragElastic={.8}
-              
+              animate={{
+                rotate: [0, 0, 270, 270, 0]
+              }}          
               whileHover={{ scale: 1.1 }}
             >
               <FontAwesomeIcon icon={faSquare} className='square'/>
