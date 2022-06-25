@@ -90,7 +90,7 @@ function Home() {
           <Col xs="6" md="3">
             <motion.div
               animate={{scale: [1.0,1.1,1.0]}}
-              transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+              transition={{ repeat: Infinity, delay: 1, repeatDelay: 3.6, repeatType: "reverse", duration: 0.4}}
             >
               <FontAwesomeIcon icon={faRobot} id='top-left-option' className='icon-option' onMouseEnter={() => setIsShown('about me')} onMouseLeave={() => setNotShown()}/>
             </motion.div>
@@ -98,7 +98,7 @@ function Home() {
           <Col xs="6" md="3">
           <motion.div
               animate={{scale: [1.0,1.1,1.0]}}
-              transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+              transition={{ repeat: Infinity, delay: 1, repeatDelay: 3.6, repeatType: "reverse", duration: 0.4}}
             >
               <FontAwesomeIcon icon={faComputer} id='top-right-option' className='icon-option'onMouseEnter={() => setIsShown('languages & skills')} onMouseLeave={() => setNotShown()}/>
           </motion.div>
@@ -126,6 +126,7 @@ function Home() {
                 rotate: [0, 0, 270, 270, 0]
               }}          
               whileHover={{ scale: 1.1 }}
+              transition={{ repeat: Infinity, repeatDelay: 3.9, repeatType: "reverse", duration: 1.1}}
             >
               <FontAwesomeIcon icon={faSquare} className='square'x={x}/>
             </motion.div>
@@ -138,7 +139,7 @@ function Home() {
           <Col xs="6" md="3">
             <motion.div
                 animate={{scale: [1.0,1.1,1.0]}}
-                transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+                transition={{ repeat: Infinity, delay: 1, repeatDelay: 3.6, repeatType: "reverse", duration: 0.4}}
             >
               <FontAwesomeIcon icon={faIcons} id='bottom-left-option' className='icon-option' onMouseEnter={() => setIsShown('projects')} onMouseLeave={() => setNotShown()}/>
             </motion.div>
@@ -146,7 +147,7 @@ function Home() {
           <Col xs="6" md="3">
             <motion.div
                 animate={{scale: [1.0,1.1,1.0]}}
-                transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+                transition={{ repeat: Infinity, delay: 1, repeatDelay: 3.6, repeatType: "reverse", duration: 0.4}}
             >
               <FontAwesomeIcon icon={faAddressCard} id='bottom-right-option' className='icon-option' onMouseEnter={() => setIsShown('contact')} onMouseLeave={() => setNotShown()}/>
             </motion.div>
