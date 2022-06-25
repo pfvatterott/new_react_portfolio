@@ -1,5 +1,5 @@
 import { React, useState } from 'react'
-import { motion, AnimatePresence } from "framer-motion"
+import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion"
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare, faIcons, faAddressCard, faComputer, faRobot } from '@fortawesome/free-solid-svg-icons'
@@ -58,12 +58,15 @@ function Home() {
     setIsVisible(false)
   }
 
-  function printInfo(event, info) {
-    console.log(info)
-  }
+  const x = useMotionValue(0)
+  const background = useTransform(
+    x,
+    [-100, 0, 100],
+    ["#3683BA", "#2CBAAA", "#23BA53"]
+  )
 
   return (
-    <div>
+    <motion.div style={{ background }} id='full-container'>
       <Container className='top-space-container'>
         <Row>
           <Col xs="12" className='text-center'>
@@ -85,10 +88,20 @@ function Home() {
         <Row>
           <Col md="3"></Col>
           <Col xs="6" md="3">
-            <FontAwesomeIcon icon={faRobot} id='top-left-option' className='icon-option' onMouseEnter={() => setIsShown('about me')} onMouseLeave={() => setNotShown()}/>
+            <motion.div
+              animate={{scale: [1.0,1.1,1.0]}}
+              transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+            >
+              <FontAwesomeIcon icon={faRobot} id='top-left-option' className='icon-option' onMouseEnter={() => setIsShown('about me')} onMouseLeave={() => setNotShown()}/>
+            </motion.div>
           </Col>
           <Col xs="6" md="3">
-            <FontAwesomeIcon icon={faComputer} id='top-right-option' className='icon-option'onMouseEnter={() => setIsShown('languages & skills')} onMouseLeave={() => setNotShown()}/>
+          <motion.div
+              animate={{scale: [1.0,1.1,1.0]}}
+              transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+            >
+              <FontAwesomeIcon icon={faComputer} id='top-right-option' className='icon-option'onMouseEnter={() => setIsShown('languages & skills')} onMouseLeave={() => setNotShown()}/>
+          </motion.div>
           </Col>
           <Col md="3"></Col>
         </Row>
@@ -98,6 +111,7 @@ function Home() {
           <Col xs="6">
             <motion.div
               drag
+              style={{x}}
               id='drag-cube'
               onDragEnd={(event, info) => getCubeLocation(event, info)}
               dragSnapToOrigin={true}
@@ -113,7 +127,7 @@ function Home() {
               }}          
               whileHover={{ scale: 1.1 }}
             >
-              <FontAwesomeIcon icon={faSquare} className='square'/>
+              <FontAwesomeIcon icon={faSquare} className='square'x={x}/>
             </motion.div>
           </Col>
           <Col xs="3"></Col>
@@ -122,16 +136,26 @@ function Home() {
         <Row>
           <Col md="3"></Col>
           <Col xs="6" md="3">
-            <FontAwesomeIcon icon={faIcons} id='bottom-left-option' className='icon-option' onMouseEnter={() => setIsShown('projects')} onMouseLeave={() => setNotShown()}/>
+            <motion.div
+                animate={{scale: [1.0,1.1,1.0]}}
+                transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+            >
+              <FontAwesomeIcon icon={faIcons} id='bottom-left-option' className='icon-option' onMouseEnter={() => setIsShown('projects')} onMouseLeave={() => setNotShown()}/>
+            </motion.div>
           </Col>
           <Col xs="6" md="3">
-            <FontAwesomeIcon icon={faAddressCard} id='bottom-right-option' className='icon-option' onMouseEnter={() => setIsShown('contact')} onMouseLeave={() => setNotShown()}/>
+            <motion.div
+                animate={{scale: [1.0,1.1,1.0]}}
+                transition={{ repeat: Infinity, delay: 1, repeatDelay: 4, repeatType: "reverse", duration: 0.4}}
+            >
+              <FontAwesomeIcon icon={faAddressCard} id='bottom-right-option' className='icon-option' onMouseEnter={() => setIsShown('contact')} onMouseLeave={() => setNotShown()}/>
+            </motion.div>
           </Col>
           <Col md="3"></Col>
         </Row>
       </Container>
       <Container className='bottom-space-container'></Container>
-    </div>
+    </motion.div>
   )
 }
 
