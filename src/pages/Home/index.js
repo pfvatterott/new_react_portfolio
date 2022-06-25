@@ -10,18 +10,13 @@ function Home() {
   const [hoverTitle, setHoverTitle] = useState('')
   const [isVisible, setIsVisible] = useState(false)
 
-  function getCubeLocation(x) {
-    let cube = document.getElementById("drag-cube");
-    let cubeX = cube.getBoundingClientRect().x
-    let cubeY = cube.getBoundingClientRect().y
+  function getCubeLocation(event, info) {
+    let cubeX = info.point.x
+    let cubeY = info.point.y
     let topLeftOption = document.getElementById("top-left-option");
     let topRightOption = document.getElementById("top-right-option");
     let BottomLeftOption = document.getElementById("bottom-left-option");
     let BottomRightOption = document.getElementById("bottom-right-option");
-    console.log('cubex ' + cubeX)
-    console.log('cubeY ' + cubeY)
-    console.log(topLeftOption.getBoundingClientRect())
-    console.log(cube.getBoundingClientRect())
 
     // if to the left
     if (((cubeX / topLeftOption.getBoundingClientRect().x < 1.1) && (cubeX / topLeftOption.getBoundingClientRect().x > .9)) || ((cubeX - topLeftOption.getBoundingClientRect().x < 40) && (cubeX - topLeftOption.getBoundingClientRect().x > -40))) {
@@ -38,7 +33,7 @@ function Home() {
     }
 
     // if to the right
-    if (((cubeX / topRightOption.getBoundingClientRect().x < 1.1) && (cubeX / topRightOption.getBoundingClientRect().x > .9)) || ((cubeX - topRightOption.getBoundingClientRect().x < 40) && (cubeX - topRightOption.getBoundingClientRect().x > -40))) {
+    if (((cubeX / topRightOption.getBoundingClientRect().x < 1.1) && (cubeX / topRightOption.getBoundingClientRect().x > .9)) || ((cubeX - topRightOption.getBoundingClientRect().x < 50) && (cubeX - topRightOption.getBoundingClientRect().x > -50))) {
 
       //top-right
       if (((cubeY / topRightOption.getBoundingClientRect().y < 1.2) && (cubeY / topRightOption.getBoundingClientRect().y > .8)) || ((cubeY - topRightOption.getBoundingClientRect().y < 40) && (cubeY - topRightOption.getBoundingClientRect().cubeY > -40))) {
@@ -61,6 +56,10 @@ function Home() {
   function setNotShown() {
     setHoverTitle('')
     setIsVisible(false)
+  }
+
+  function printInfo(event, info) {
+    console.log(info)
   }
 
   return (
@@ -100,7 +99,7 @@ function Home() {
             <motion.div
               drag
               id='drag-cube'
-              onDragEnd={(x) => getCubeLocation(x)}
+              onDragEnd={(event, info) => getCubeLocation(event, info)}
               dragSnapToOrigin={true}
               dragConstraints={{
                 top: -50,
