@@ -13,7 +13,7 @@
 
 .square {
     height: 75px;
-    color: #6E2504;
+    color: #FFF7FA;
 }
 
 .icon-option {
@@ -21,7 +21,7 @@
 }
 
 .icon-option:hover {
-    color: #BA582D;
+    color: #FD71AF;
 }
 
 #option-description {

@@ -9,6 +9,7 @@ import "./style.css"
 function Home() {
   const [hoverTitle, setHoverTitle] = useState('')
   const [isVisible, setIsVisible] = useState(false)
+  const [mainMenu, setMainMenu] = useState(true)
 
   function getCubeLocation(event, info) {
     let cubeX = info.point.x
@@ -24,6 +25,7 @@ function Home() {
       //top-left
       if (((cubeY / topLeftOption.getBoundingClientRect().y < 1.2) && (cubeY / topLeftOption.getBoundingClientRect().y > .8)) || ((cubeY - topLeftOption.getBoundingClientRect().y < 40) && (cubeY - topLeftOption.getBoundingClientRect().cubeY > -40))) {
         console.log('top-left')
+        setMainMenu(false)
       }
 
       //bottom-left
@@ -68,14 +70,22 @@ function Home() {
       "linear-gradient(180deg, rgb(230, 255, 0) 0%, rgb(3, 209, 0) 100%)"
     ]
   )
-  const testing = "#23BA53"
 
   return (
     <motion.div id='full-container' style={{ background }}>
+      <AnimatePresence>
+      {mainMenu && (
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{duration: 1.5}}
+        exit={{ opacity: 0 }}
+      >
+      
       <Container className='top-space-container'>
         <Row>
           <Col xs="12" className='text-center'>
-            <AnimatePresence>
+            <AnimatePresence >
               {isVisible && (
               <motion.div
                   initial={{ opacity: 0, scale: 0.75 }}
@@ -161,6 +171,9 @@ function Home() {
         </Row>
       </Container>
       <Container className='bottom-space-container'></Container>
+      </motion.div>
+      )}
+      </AnimatePresence>
     </motion.div>
   )
 }
