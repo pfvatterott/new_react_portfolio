@@ -33,7 +33,7 @@ function Home() {
     }
 
     // if to the right
-    if (((cubeX / topRightOption.getBoundingClientRect().x < 1.1) && (cubeX / topRightOption.getBoundingClientRect().x > .9)) || ((cubeX - topRightOption.getBoundingClientRect().x < 50) && (cubeX - topRightOption.getBoundingClientRect().x > -50))) {
+    if (((cubeX / topRightOption.getBoundingClientRect().x < 1.2) && (cubeX / topRightOption.getBoundingClientRect().x > .95)) || ((cubeX - topRightOption.getBoundingClientRect().x < 50) && (cubeX - topRightOption.getBoundingClientRect().x > -50))) {
 
       //top-right
       if (((cubeY / topRightOption.getBoundingClientRect().y < 1.2) && (cubeY / topRightOption.getBoundingClientRect().y > .8)) || ((cubeY - topRightOption.getBoundingClientRect().y < 40) && (cubeY - topRightOption.getBoundingClientRect().cubeY > -40))) {
@@ -61,12 +61,17 @@ function Home() {
   const x = useMotionValue(0)
   const background = useTransform(
     x,
-    [-100, 0, 100],
-    ["#3683BA", "#2CBAAA", "#23BA53"]
+    [-300, 0, 300],
+    [
+      "linear-gradient(180deg, #ff008c 0%, rgb(211, 9, 225) 100%)",
+      "linear-gradient(180deg, #7700ff 0%, rgb(68, 0, 255) 100%)",
+      "linear-gradient(180deg, rgb(230, 255, 0) 0%, rgb(3, 209, 0) 100%)"
+    ]
   )
+  const testing = "#23BA53"
 
   return (
-    <motion.div style={{ background }} id='full-container'>
+    <motion.div id='full-container' style={{ background }}>
       <Container className='top-space-container'>
         <Row>
           <Col xs="12" className='text-center'>
