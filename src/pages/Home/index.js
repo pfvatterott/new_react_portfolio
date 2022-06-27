@@ -1,5 +1,6 @@
 import { React, useState } from 'react'
 import { motion, AnimatePresence, useMotionValue, useTransform } from "framer-motion"
+import { Navigate } from "react-router-dom";
 import { Container, Row, Col } from 'react-bootstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSquare, faIcons, faAddressCard, faComputer, faRobot } from '@fortawesome/free-solid-svg-icons'
@@ -10,6 +11,7 @@ function Home() {
   const [hoverTitle, setHoverTitle] = useState('')
   const [isVisible, setIsVisible] = useState(false)
   const [mainMenu, setMainMenu] = useState(true)
+  const [openAbout, setOpenAbout] = useState(false)
 
   function getCubeLocation(event, info) {
     let cubeX = info.point.x
@@ -26,6 +28,10 @@ function Home() {
       if (((cubeY / topLeftOption.getBoundingClientRect().y < 1.2) && (cubeY / topLeftOption.getBoundingClientRect().y > .8)) || ((cubeY - topLeftOption.getBoundingClientRect().y < 40) && (cubeY - topLeftOption.getBoundingClientRect().cubeY > -40))) {
         console.log('top-left')
         setMainMenu(false)
+        setTimeout(function () {
+          setOpenAbout(true)
+
+        }, 1500)
       }
 
       //bottom-left
@@ -73,6 +79,7 @@ function Home() {
 
   return (
     <motion.div id='full-container' style={{ background }}>
+      { openAbout ? (<Navigate push to={{pathname: '/about' }}/>) : null }
       <AnimatePresence>
       {mainMenu && (
       <motion.div
