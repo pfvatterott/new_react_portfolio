@@ -1,0 +1,17 @@
+#top-space-container-about {
+    height: 30vh
+}
+
+#middle-space-container-about {
+    height: 30vh
+}
+
+#bottom-space-container-about {
+    height: 30vh
+}
+
+#profile-pic {
+    border-radius: 1000px;
+    width: 100%;
+    max-width: 500px;
+}
